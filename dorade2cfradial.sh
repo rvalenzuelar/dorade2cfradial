@@ -9,7 +9,7 @@
 #	$ dorade2cfradial.sh . ./output
 #
 # This script is copied from ~/Github/dorade2cfradial to
-# ~/bin
+# ~/bin as a symbolic link
 #
 # Raul Valenzuela
 # April, 2015
@@ -33,6 +33,8 @@ fi
 
 if [ "$OUTDIR" == "." ]; then
 	OUTDIR=$(pwd)
+elif [ "${OUTDIR:1}" != " " ];then
+	OUTDIR=$(pwd)/${OUTDIR:2}
 elif [ -z "$OUTDIR" ];then
 	OUTDIR="${INDIR/dorade/cfrad}"
 fi
